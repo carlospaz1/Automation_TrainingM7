@@ -1,15 +1,21 @@
-﻿using System;
+﻿using AutomationTraining_M7.Base_Files;
+using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AutomationTraining_M7
 {
-    class Program
+    class Program : BaseTest
     {
         static void Main(string[] args)
         {
+            BaseTest.SetUp();
+            driver.Quit();
+            Console.ReadKey();
         }
     }
 }
