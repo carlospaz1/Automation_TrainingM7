@@ -13,7 +13,7 @@ namespace AutomationTraining_M7
     {
         static void Main(string[] args)
         {
-            BaseTest.SetUp();
+            SetUp();
             driver.Quit();
             Console.ReadKey();
         }
