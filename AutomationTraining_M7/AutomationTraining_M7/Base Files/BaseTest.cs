@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace AutomationTraining_M7.Base_Files
         //URL for Webdriver
         private static string strBrowserName = ConfigurationManager.AppSettings.Get("url");
 
+        [SetUp]
         //Methods
         public static void SetUp()
         {
@@ -23,7 +25,17 @@ namespace AutomationTraining_M7.Base_Files
             driver.Url = strBrowserName;
         }
 
+        [TearDown]
+        public static void AfterTest()
+        {
+            driver.Close();
+            driver.Quit();
+        }
+
+        public static void FnSendkeyAndClear(By by, string pstrText)
+        {
+            driver.FindElement(by).Clear();
+            driver.FindElement(by).SendKeys(pstrText);
+        }
     }
-
-
 }
